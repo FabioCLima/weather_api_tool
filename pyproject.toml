@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "weather-tool"
+version = "0.1.0"
+description = "Ferramenta de clima simples para aprendizado de OOP e uso com agentes IA"
+authors = [{ name = "Fabio Lima", email = "lima.fisico@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "loguru>=0.7.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "pytest>=8.4.2",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.4.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "F"]  # Apenas erros e falhas básicas
+ignore = ["E501"]    # Ignora linha muito longa por enquanto
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
